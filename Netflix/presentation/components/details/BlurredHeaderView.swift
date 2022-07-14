@@ -74,6 +74,7 @@ struct BlurredHeaderView: View {
                 
             }
             .padding([.leading, .trailing, .bottom], 16)
+            .foregroundColor(.white)
         )
         
     }

@@ -18,6 +18,8 @@ struct Section_Movies: View {
         self.title = title
     }
     
+    let spacing: CGFloat = 16
+    
     
     var body: some View {
         Group {
@@ -31,20 +33,18 @@ struct Section_Movies: View {
     }
     
     
-    var shimmerLoadingView: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            ShimmerView()
-                .frame(width: fullWidth * 0.55, height: 32)
-            ShimmerView()
-                .frame(height: 245)
+    var moviesSection: some View {
+        VStack(alignment: .leading, spacing: spacing) {
+            titleHeader
+            moviesScrollView
         }
-        .padding(.horizontal, 10)
     }
+
+    
     
     var titleHeader: some View {
         Text(title)
             .font(.system(size: 24, weight: .bold))
-            .padding(.leading, 16)
     }
     
     var moviesScrollView: some View {
@@ -55,17 +55,19 @@ struct Section_Movies: View {
                 }
             }
             .frame(height: 245)
-            .padding([.leading, .trailing], 10)
         }
     }
     
-    var moviesSection: some View {
+ 
+    var shimmerLoadingView: some View {
         VStack(alignment: .leading, spacing: 10) {
-            titleHeader
-            moviesScrollView
+            ShimmerView()
+                .frame(width: fullWidth * 0.55, height: 32)
+            ShimmerView()
+                .frame(height: 245)
         }
     }
-
-  
+    
+    
 }
 

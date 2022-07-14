@@ -138,6 +138,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		447021D22880D257007042CF /* sections */ = {
+			isa = PBXGroup;
+			children = (
+				447456BA287FEFEE00C645DB /* Section_Movies.swift */,
+				4474566A287FE09B00C645DB /* Section_TV.swift */,
+			);
+			path = sections;
+			sourceTree = "<group>";
+		};
+		447021D42880D2D7007042CF /* view-models */ = {
+			isa = PBXGroup;
+			children = (
+				447456AA287FE63C00C645DB /* SectionViewModel_TV.swift */,
+				447456B6287FEF3900C645DB /* SectionViewModel_Movies.swift */,
+			);
+			path = "view-models";
+			sourceTree = "<group>";
+		};
+		447021D62880D399007042CF /* view-models */ = {
+			isa = PBXGroup;
+			children = (
+				447456E1287FFE4D00C645DB /* SearchViewModel_Item.swift */,
+			);
+			path = "view-models";
+			sourceTree = "<group>";
+		};
 		44745624287FDD5700C645DB = {
 			isa = PBXGroup;
 			children = (
@@ -231,16 +257,6 @@
 			path = api;
 			sourceTree = "<group>";
 		};
-		44745655287FDE4300C645DB /* home-tv */ = {
-			isa = PBXGroup;
-			children = (
-				447456A3287FE2B000C645DB /* view-models */,
-				44745669287FE04700C645DB /* components */,
-				44745656287FDE7000C645DB /* HomeView_TV.swift */,
-			);
-			path = "home-tv";
-			sourceTree = "<group>";
-		};
 		4474565B287FDFF300C645DB /* endpoints */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,20 +276,12 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
-		44745669287FE04700C645DB /* components */ = {
-			isa = PBXGroup;
-			children = (
-				4474566A287FE09B00C645DB /* Section_TV.swift */,
-				447456A8287FE43500C645DB /* GenresList_TV.swift */,
-			);
-			path = components;
-			sourceTree = "<group>";
-		};
 		4474566C287FE12800C645DB /* components */ = {
 			isa = PBXGroup;
 			children = (
 				447456D6287FF76000C645DB /* async-image */,
 				44745683287FE12800C645DB /* generic */,
+				447021D22880D257007042CF /* sections */,
 				4474566D287FE12800C645DB /* cells */,
 				4474567D287FE12800C645DB /* details */,
 				44745673287FE12800C645DB /* lists-views */,
@@ -296,6 +304,8 @@
 		44745673287FE12800C645DB /* lists-views */ = {
 			isa = PBXGroup;
 			children = (
+				447456BB287FEFEE00C645DB /* GenresList_Movies.swift */,
+				447456A8287FE43500C645DB /* GenresList_TV.swift */,
 				44745674287FE12800C645DB /* TVSeasonListView.swift */,
 				44745675287FE12800C645DB /* MovieCastListView.swift */,
 			);
@@ -365,14 +375,6 @@
 			path = globals;
 			sourceTree = "<group>";
 		};
-		447456A3287FE2B000C645DB /* view-models */ = {
-			isa = PBXGroup;
-			children = (
-				447456AA287FE63C00C645DB /* SectionViewModel_TV.swift */,
-			);
-			path = "view-models";
-			sourceTree = "<group>";
-		};
 		447456AC287FE8C600C645DB /* image-loader */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,48 +383,14 @@
 			path = "image-loader";
 			sourceTree = "<group>";
 		};
-		447456B1287FEDD600C645DB /* home_movies */ = {
-			isa = PBXGroup;
-			children = (
-				447456B9287FEFEE00C645DB /* components */,
-				447456B8287FEF3C00C645DB /* view-models */,
-				447456B2287FEE1800C645DB /* HomeView_Movies.swift */,
-			);
-			path = home_movies;
-			sourceTree = "<group>";
-		};
-		447456B8287FEF3C00C645DB /* view-models */ = {
-			isa = PBXGroup;
-			children = (
-				447456B6287FEF3900C645DB /* SectionViewModel_Movies.swift */,
-			);
-			path = "view-models";
-			sourceTree = "<group>";
-		};
-		447456B9287FEFEE00C645DB /* components */ = {
-			isa = PBXGroup;
-			children = (
-				447456BA287FEFEE00C645DB /* Section_Movies.swift */,
-				447456BB287FEFEE00C645DB /* GenresList_Movies.swift */,
-			);
-			path = components;
-			sourceTree = "<group>";
-		};
-		447456BE287FF0D500C645DB /* home-categories */ = {
-			isa = PBXGroup;
-			children = (
-				447456BF287FF0EB00C645DB /* HomeView_Categories.swift */,
-			);
-			path = "home-categories";
-			sourceTree = "<group>";
-		};
 		447456C1287FF13400C645DB /* home */ = {
 			isa = PBXGroup;
 			children = (
+				447021D42880D2D7007042CF /* view-models */,
 				447456AF287FEABF00C645DB /* HomeView.swift */,
-				44745655287FDE4300C645DB /* home-tv */,
-				447456B1287FEDD600C645DB /* home_movies */,
-				447456BE287FF0D500C645DB /* home-categories */,
+				44745656287FDE7000C645DB /* HomeView_TV.swift */,
+				447456B2287FEE1800C645DB /* HomeView_Movies.swift */,
+				447456BF287FF0EB00C645DB /* HomeView_Categories.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -460,18 +428,10 @@
 		447456D7287FFDFF00C645DB /* search */ = {
 			isa = PBXGroup;
 			children = (
-				447456E4287FFEFC00C645DB /* view-models */,
+				447021D62880D399007042CF /* view-models */,
 				447456D8287FFE1500C645DB /* SearchView.swift */,
 			);
 			path = search;
-			sourceTree = "<group>";
-		};
-		447456E4287FFEFC00C645DB /* view-models */ = {
-			isa = PBXGroup;
-			children = (
-				447456E1287FFE4D00C645DB /* SearchViewModel_Item.swift */,
-			);
-			path = "view-models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -32,9 +32,6 @@ struct DetailsView_TV: View {
     
     var body: some View {
         ZStack {
-            Color(.black)
-                .edgesIgnoringSafeArea(.all)
-            
     
             ScrollView(.vertical, showsIndicators: true) {
                 VStack(alignment: .leading, spacing: headerSpacing) {
@@ -44,7 +41,7 @@ struct DetailsView_TV: View {
                 }
             }
             .edgesIgnoringSafeArea(.all)
-            .foregroundColor(.white)
+            
         }
     }
     
@@ -106,10 +103,7 @@ struct SeasonsSection: View {
     var body: some View {
         
         ZStack {
-            Color(.black)
-                .edgesIgnoringSafeArea(.all)
-            
-            
+
             VStack {
                 HStack {
                     Text("Seasons")

@@ -14,6 +14,7 @@ struct Section_TV: View {
     @ObservedObject var sectionViewModel_TV: SectionViewModel_TV
     var title: String
 
+    let spacing: CGFloat = 16
     
     init(sectionViewModel_TV: SectionViewModel_TV, title: String = "") {
         self.sectionViewModel_TV = sectionViewModel_TV
@@ -37,7 +38,7 @@ struct Section_TV: View {
     
     
     var section_tv: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: spacing) {
             titleHeader
             tvShowsScrollView
         }
@@ -48,7 +49,6 @@ struct Section_TV: View {
     var titleHeader: some View {
         Text(title)
             .font(.system(size: 24, weight: .bold))
-            .padding(.leading, 16)
     }
     
     
@@ -60,19 +60,17 @@ struct Section_TV: View {
                 }
             }
             .frame(height: 245)
-           
         }
     }
     
     
     var shimmerLoadingView: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 16) {
             ShimmerView()
                 .frame(width: fullWidth * 0.55, height: 32)
             ShimmerView()
                 .frame(height: 245)
         }
-        .padding(.horizontal, 10)
     }
   
 }

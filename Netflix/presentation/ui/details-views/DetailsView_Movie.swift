@@ -38,8 +38,6 @@ struct DetailsView_Movie: View {
 
     var body: some View {
         ZStack {
-            Color(.black)
-                .edgesIgnoringSafeArea(.all)
             
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading, spacing: headerSpacing) {
@@ -49,7 +47,7 @@ struct DetailsView_Movie: View {
                 }
             }
             .edgesIgnoringSafeArea(.all)
-            .foregroundColor(.primary)
+        
         }
     }
     

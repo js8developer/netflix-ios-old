@@ -72,6 +72,7 @@ struct MovieCastListView: View {
     
     let spacing: CGFloat = 16
     let photoWidth: CGFloat = 100
+    let scrollViewHeight: CGFloat = 150
     
     
     var body: some View {
@@ -81,9 +82,11 @@ struct MovieCastListView: View {
                     sectionTitle
                     castList
                 }
+                .padding(.horizontal)
             }
             else {
                 shimmerSkeleton
+                    .padding(.horizontal)
             }
         }
     }
@@ -91,73 +94,83 @@ struct MovieCastListView: View {
     var sectionTitle: some View {
         Text("Cast")
             .font(.system(size: 24, weight: .bold))
-            .foregroundColor(.white)
-            .padding()
     }
     
     var shimmerSkeleton: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: spacing) {
             ShimmerView()
                 .frame(height: 32)
             ShimmerView()
-                .frame(height: 170)
+                .frame(height: scrollViewHeight)
         }
         .padding(.horizontal)
     }
 
     var castList: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 20) {
+            HStack(spacing: spacing) {
                 Group {
-                    ForEach(movieCastViewModel.actors) { actor in
-                        actorCell(actor: actor)
+                    ForEach(movieCastViewModel.actors) { castActor in
+                        CastActorCell(castActor: castActor)
                     }
                 }
             }
-            .frame(height: 170)
-            .padding([.leading, .trailing], 10)
+            .frame(height: scrollViewHeight)
+          
         }
     }
     
+}
+
+
+
+struct CastActorCell: View {
     
+    var castActor: Actor
     
+    let spacing: CGFloat = 16
+    let photoWidth: CGFloat = 100
+    let scrollViewHeight: CGFloat = 150
     
-    func actorCell(actor: Actor) -> some View {
-        return Group {
-            if actor.profileUrl != nil {
-                VStack(alignment: .center, spacing: 16) {
-                    AsyncImage(url: actor.profileUrl!,
+    var body: some View {
+        
+        Group {
+            if castActor.profileUrl != nil {
+                VStack(alignment: .center, spacing: spacing) {
+                    AsyncImage(url: castActor.profileUrl!,
                                configuration: { AnyView($0.resizable().scaledToFill()) },
                                defaultView: { AnyView(ShimmerView() )
                     })
                     .frame(width: photoWidth, height: photoWidth)
                     .clipShape(Circle())
                     
-                    Text(actor.name)
+                    Text(castActor.name)
                         .font(.system(size: 15, weight: .medium))
-                        .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .frame(width: photoWidth)
 
                     Spacer(minLength: 0)
                 }
             } else {
-               VStack(alignment: .center, spacing: 16) {
-                    Color.darkerGray
-                        .frame(width: 100, height: 100)
-                        .clipShape(Circle())
-                   
-                   Text(actor.name)
-                       .font(.system(size: 15, weight: .medium))
-                       .foregroundColor(.white)
-                       .multilineTextAlignment(.center)
-                       .frame(width: photoWidth)
-                   
-                   Spacer(minLength: 0)
-                }
+                emptyActorCell
             }
         }
+        
+    }
+    
+    
+    var emptyActorCell: some View {
+        VStack(alignment: .center, spacing: spacing) {
+             Color.darkerGray
+                 .frame(width: photoWidth, height: photoWidth)
+                 .clipShape(Circle())
+            
+            Text(castActor.name)
+                .font(.system(size: 15, weight: .medium))
+                .multilineTextAlignment(.center)
+                .frame(width: photoWidth)
+            
+            Spacer(minLength: 0)
+         }
     }
 }
-
-
