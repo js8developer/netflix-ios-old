@@ -76,5 +76,6 @@ struct DetailsView_Movie: View {
     var recommendations: some View {
         RecommendationsView(netflixObject: netflixObject)
             .padding(.bottom, 90)
+            .padding(.horizontal)
     }
 }

@@ -63,16 +63,14 @@ struct TVSeasonListView: View {
         self.tvSeasonListViewModel = TVSeasonListViewModel(tvShowId: tvShowId, tvSeasonNumber: tvSeason.seasonNumber)
     }
     
-    var seasonTitleView: AnyView {
-        return AnyView(
-            HStack {
-                Text(self.tvSeasonName)
+    var seasonTitleView: some View {
+        return HStack {
+                Text(tvSeasonName)
                     .font(.system(size: 18, weight: .bold))
-                    .padding(.top)
-                
+                    
                 Spacer()
             }
-        )
+        
     }
 
     var episodesListView: some View {
@@ -89,7 +87,8 @@ struct TVSeasonListView: View {
             ShimmerView().frame(height: 40)
                 .padding(.top, 30)
             ForEach((1...5), id: \.self) { _ in
-                ShimmerView().frame(height: 100)
+                ShimmerView()
+                    .frame(height: 100)
             }
         }
     }
@@ -104,10 +103,8 @@ struct TVSeasonListView: View {
     var body: some View {
         Group {
             if seasonHasEpisodes {
-                Group {
-                    seasonTitleView
-                    episodesListView
-                }
+                seasonTitleView
+                episodesListView
             }
             else {
                 defaultShimmerGroup

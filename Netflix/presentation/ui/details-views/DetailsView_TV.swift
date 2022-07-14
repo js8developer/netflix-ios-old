@@ -17,7 +17,7 @@ struct DetailsView_TV: View {
         return NetflixObject(type: .tv, tvShow: tvShow)
     }
     
-    let headerSpacing: CGFloat = 20
+    let headerSpacing: CGFloat = 16
     
     var tvShow: TVShow
     
@@ -33,11 +33,12 @@ struct DetailsView_TV: View {
     var body: some View {
         ZStack {
     
-            ScrollView(.vertical, showsIndicators: true) {
+            ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading, spacing: headerSpacing) {
                     header
                     episodes
                     recommendations
+                        .padding(.horizontal)
                 }
             }
             .edgesIgnoringSafeArea(.all)
@@ -106,7 +107,7 @@ struct SeasonsSection: View {
 
             VStack {
                 HStack {
-                    Text("Seasons")
+                    Text("Episodes")
                         .font(.system(size: 24, weight: .bold))
                     Spacer()
                 }

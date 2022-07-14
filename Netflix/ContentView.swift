@@ -38,5 +38,6 @@ struct ContentView: View {
             
         }
         .accentColor(.red)
+        .preferredColorScheme(.dark)
     }
 }

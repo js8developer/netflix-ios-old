@@ -59,18 +59,23 @@ struct BlurredHeaderView: View {
                     .padding(.top, 50)
             
                 Text(title)
-                    .font(.system(size: 32, weight: .bold)).minimumScaleFactor(0.5)
+                    .font(.system(size: 32, weight: .bold))
+                    .minimumScaleFactor(0.5)
+                
+             
+                
+                HStack(alignment: .center, spacing: 60) {
+                    ScoreView(voteAverage: netflixObjectDetailsViewModel.voteAverage())
+                    
+                    Text(netflixObjectDetailsViewModel.releaseDateString())
+                        .fontWeight(.semibold)
+                }
+                
                 
                 Text(netflixObjectDetailsViewModel.overviewString())
                     .font(.system(size: 15, weight: .regular))
                     .lineLimit(5)
                     .multilineTextAlignment(.center)
-                
-                HStack(alignment: .center, spacing: 60) {
-                    ScoreView(voteAverage: netflixObjectDetailsViewModel.voteAverage())
-                    
-                    Text(netflixObjectDetailsViewModel.releaseDateString()).fontWeight(.semibold)
-                }
                 
             }
             .padding([.leading, .trailing, .bottom], 16)

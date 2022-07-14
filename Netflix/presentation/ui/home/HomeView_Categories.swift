@@ -40,6 +40,9 @@ struct HomeView_Categories: View {
         ScrollView(.vertical, showsIndicators: false){
             VStack(alignment: .leading, spacing: 36) {
                 
+                Text("Categories")
+                    .font(.system(size: 24, weight: .bold))
+                
                 ForEach(categories, id: \.self){ (category) in
                     HStack {
                         Text(category)
